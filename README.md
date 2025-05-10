@@ -1,6 +1,6 @@
-# CUDA Experiments
+# CUDA and MPI Experiments
 Author: Dylan Maltos
-- Just some cool things I've done via experimenting with CUDA
+- Just some cool things I've done via experimenting with CUDA and MPI
 
 ## sobel_filter
 A sobel image filter that utilizes GPU resource via CUDA programming
