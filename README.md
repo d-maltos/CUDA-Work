@@ -11,3 +11,15 @@ Compile and run with:
 ```
 nvcc sobel-gpu.cu -lfreeimage
 ```
+
+## parallel-minimum-mpi
+Finds the global minimum of 8 million random integers using MPI
+- Splits the dataset across 8 processes
+- Each process computes a local minimum
+- Process 0 gathers local minimums via MPI_Reduce and outputs the global minimum
+- Valdidates result by computer the sequential minimum
+
+Compile and run with:
+```
+mpic++ -o parallel-minimum parallel-minimum-mpi.cpp && mpirun -np 8 ./parallel-minimum
+```
