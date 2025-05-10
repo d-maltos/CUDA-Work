@@ -2,7 +2,7 @@
 Author: Dylan Maltos
 - Just some cool things I've done via experimenting with CUDA and MPI
 
-## sobel_filter
+## sobel-filter
 A sobel image filter that utilizes GPU resource via CUDA programming
 - Uses a tiled 2D array of blocks and a 2D array of threads per block
 - Works for images of all different sizes
@@ -22,4 +22,15 @@ Finds the global minimum of 8 million random integers using MPI
 Compile and run with:
 ```
 mpic++ -o parallel-minimum parallel-minimum-mpi.cpp && mpirun -np 8 ./parallel-minimum
+```
+
+## parallel-minimum-cuda
+CUDA program to find the global minimum of 8 million random integers
+- Launches 8 GPU threads, each computing alocal minimum over 1/8th of the data
+- Final reduction of partial minimums is done on the host
+- Validates result by computing the minimum sequentially on the CPU
+
+Compile and run with:
+```
+ nvcc parallel-minimum-cuda.cu -o parallel-minimum-cuda && ./parallel-minimum-cuda
 ```
