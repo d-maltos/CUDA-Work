@@ -3,7 +3,7 @@ Author: Dylan Maltos
 - Just some cool things I've done via experimenting with CUDA and MPI
 
 ## sobel-filter
-A sobel image filter that utilizes GPU resource via CUDA programming
+Sobel image filter that utilizes GPU resources via CUDA
 - Uses a tiled 2D array of blocks and a 2D array of threads per block
 - Works for images of all different sizes
 
@@ -41,7 +41,20 @@ CUDA program to compute the total sum of a 3x4 matrix
 - The host aggregates the column sums to get the final total
 - Outputs the matrix, column-wise sums, and overall total
 
-Compile and run with 
+Compile and run with:
 ```
 nvcc 2d-array-sum.cu -o 2d-array-sum && ./2d-array-sum
+```
+
+## raytracer-gpu
+GPU-accelerated ray tracer that uses CUDA for parallel rendering
+- Casts rays top-down across a 2048x2048 image grid
+- Each ray tests intersection with 80 randomly generated spheres
+- Pixel color is determined by sphere hit location and normal
+- Saves the rendered output as 'rayGPU.png' using FreeImage
+- Measures and reports GPU render time for performance comparison
+
+Compile and run with:
+```
+nvcc raytracer-gpu.cu -lfreeimage -o raytracer-gpu && ./raytracer-gpu
 ```
