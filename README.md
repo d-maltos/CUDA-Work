@@ -34,3 +34,14 @@ Compile and run with:
 ```
  nvcc parallel-minimum-cuda.cu -o parallel-minimum-cuda && ./parallel-minimum-cuda
 ```
+
+## 2d-array-sum
+CUDA program to compute the total sum of a 3x4 matrix
+- Each GPU thread sums one column of the matrix in parallel
+- The host aggregates the column sums to get the final total
+- Outputs the matrix, column-wise sums, and overall total
+
+Compile and run with 
+```
+nvcc 2d-array-sum.cu -o 2d-array-sum && ./2d-array-sum
+```
