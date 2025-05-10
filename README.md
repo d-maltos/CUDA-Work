@@ -8,4 +8,6 @@ A sobel image filter that utilizes GPU resource via CUDA programming
 - Works for images of all different sizes
 
 Compile and run with:
-```nvcc sobel-gpu.cu -lfreeimage```
+```
+nvcc sobel-gpu.cu -lfreeimage
+```
